@@ -6,6 +6,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/JoyZadan/introduction-to-react?color=yellow&style=for-the-badge)
 
 ---
+# **REACT ESSENTIALS**
 ## **About ReactJS**
 ReactJS - more commonly just called React - is a powerful, open source JavaScript library used to create fast and interactive user interfaces. It is developed and maintained by Facebook, and used by over 1.7 million live websites as of 2020.
 
@@ -55,7 +56,48 @@ This is the file that will be served when someone visits your app. There's only 
 
 * **src** folder
     We will only focus on some of the files here.
-    * **App.js** is the react component that renders the content you see in the preview window. In this case, **App.js defines a function called App `function App()` and this the actual React Component.** The function returns a strange looking combination of HTML and JavaScript and this language is called **JSX** which we'll be learning throughout this module. At the bottom of the file, the function is exported, allowing it to be imported into other files on the project so that it can be reused as needed.
+    * **App.js** is the react component that renders the content you see in the preview window. In this case, **App.js defines a function called App, `function App()` and this the actual React Component.** The function returns a strange looking combination of HTML and JavaScript and this language is called **JSX** which we'll be learning throughout this module. At the bottom of the file, the function is exported, `export default App;` allowing it to be imported into other files on the project so that it can be reused as needed.
+
     * **index.js** is the JavaScript file that gets run when you first load the app. Inside it is where the magic happens. First, there are some imports including **React**, **ReactDom**, some CSS, and the app component from App.js.
+        ```javascript
+        import React from 'react';
+        import ReactDOM from `react-dom`;
+        import './index.css';
+        import App from `./App`;
+        import reportWebVitals from `./reportWebVitals`;
+        ```
+        Then, `ReactDOM.render` is called in order to render the App component in that root div with the ID of "root" in index.html (see index.html above).
+            `document.getElementById('root')`
 
+    * **App.css**<br/>
+        App.css provides styling for the app.js component.
 
+    * **index.css**<br/>
+        index.css provides styling for the index.html page.
+
+        It would technically be fine to put all this CSS in one file, but generally React developers like to separate out their component CSS so that if they reuse the component, the CSS comes with it.
+
+---
+### **The flow of the application**
+
+* When someone navigates to your page, the *empty* **index.html** is rendered containing the shell of the application, the basic HTML structure and the empty root div.
+
+* Then **index.js** is run, which imports React, ReactDOM and the App component and renders the App component into the root div.
+    ```javascript
+    React.DOM.render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+    ```
+
+* The **app component** itself is where the actual HTML you see in the preview window is defined, and it can be modified or reused as required.
+    Most React apps have lots of little components like App.js and **each component renders a specific part of the UI**. Together, they make up the entire user interface and can provide all sorts of interactivity.
+
+Recap: index.html contains basic page structure and the empty root div, the root div ends up with the App component rendered into it, and that is done when index.js is run. This is the basic flow of any React application. The configuration for how they work together is managed with **package.json**.
+
+![flow of a react application](./documentation/flow-of-a-react-application.png)
+
+---
+Next: See **Introduction to JSX**
