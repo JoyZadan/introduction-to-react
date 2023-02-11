@@ -100,4 +100,4 @@ Recap: index.html contains basic page structure and the empty root div, the root
 ![flow of a react application](./documentation/flow-of-a-react-application.png)
 
 ---
-Next: See **Introduction to JSX**
+Next: See [**Introduction to JSX**](https://github.com/JoyZadan/react-core-intro-to-jsx)
